@@ -10,16 +10,59 @@
   <div class="table-item table-item-header">Points</div>
 
   @for (standing of standings; track standing.team.id) {
-  <div class="table-item">{{ standing.rank }}</div>
-  <div class="table-item">
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
+    {{ standing.rank }}
+  </div>
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
     <img class="img-logo" [src]="standing.team.logo" />
   </div>
-  <div class="table-item">{{ standing.team.name }}</div>
-  <div class="table-item">{{ standing.all.played }}</div>
-  <div class="table-item">{{ standing.all.win }}</div>
-  <div class="table-item">{{ standing.all.lose }}</div>
-  <div class="table-item">{{ standing.all.draw }}</div>
-  <div class="table-item">{{ standing.goalsDiff }}</div>
-  <div class="table-item">{{ standing.points }}</div>
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
+    {{ standing.team.name }}
+  </div>
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
+    {{ standing.all.played }}
+  </div>
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
+    {{ standing.all.win }}
+  </div>
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
+    {{ standing.all.lose }}
+  </div>
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
+    {{ standing.all.draw }}
+  </div>
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
+    {{ standing.goalsDiff }}
+  </div>
+  <div
+    class="table-item"
+    [class]="$even ? 'table-item-even' : 'table-item-odd'"
+  >
+    {{ standing.points }}
+  </div>
   }
 </div>

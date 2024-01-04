@@ -10,12 +10,20 @@
 }
 
 .table-item {
-  background-color: mintcream;
   padding: 0.2em;
 }
 
 .table-item-header {
+  background-color: rgb(216, 236, 248);
   font-weight: bold;
+}
+
+.table-item-even {
+  background-color: mintcream;
+}
+
+.table-item-odd {
+  background-color: rgb(228, 241, 233);
 }
 
 .img-logo {
