@@ -6,13 +6,12 @@
   margin-right: 5%;
 }
 
-.main-container > * {
-  margin-top: 1em;
-}
-
 .app-title {
-  margin-top: 0.5em !important;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
   font-size: xx-large;
   font-weight: bold;
   text-align: center;
+  text-decoration: none;
+  color: black;
 }

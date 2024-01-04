@@ -1,0 +1,10 @@
+@if (leagueId != null) {
+<app-league-nav
+  [selectedLeagueId]="leagueId"
+  (selectedLeagueIdChange)="onselectedLeagueIdChange($event)"
+></app-league-nav>
+<div class="space-top"></div>
+<app-league-standings [leagueId]="leagueId"></app-league-standings>
+} @else {
+<app-error404></app-error404>
+}

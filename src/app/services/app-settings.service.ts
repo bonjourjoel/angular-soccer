@@ -18,26 +18,31 @@ export class AppSettingsService {
           leagueId: 39,
           leagueName: 'Premier League',
           countryName: 'England',
+          isDefault: false,
         },
         {
           leagueId: 140,
           leagueName: 'La Liga',
           countryName: 'Spain',
+          isDefault: false,
         },
         {
           leagueId: 78,
           leagueName: 'Bundesliga',
           countryName: 'Germany',
+          isDefault: false,
         },
         {
           leagueId: 61,
           leagueName: 'Ligue 1',
           countryName: 'France',
+          isDefault: true,
         },
         {
           leagueId: 135,
           leagueName: 'Serie A',
           countryName: 'Italy',
+          isDefault: false,
         },
       ],
     };

@@ -9,3 +9,7 @@ body {
   background-image: url("/assets/soccer-wallpaper.jpg");
   background-size: 100vw 100vh;
 }
+
+.space-top {
+  margin-top: 1em;
+}

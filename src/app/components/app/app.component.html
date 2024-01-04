@@ -1,5 +1,4 @@
 <div class="main-container">
-  <a routerLink="/" class="app-title">Angular s<small>⚽</small>ccer</a>
-  <app-league-nav [(selectedLeagueId)]="selectedLeagueId"></app-league-nav>
-  <app-league-standings [leagueId]="selectedLeagueId"></app-league-standings>
+  <a [routerLink]="['/']" class="app-title">Angular s<small>⚽</small>ccer</a>
+  <router-outlet></router-outlet>
 </div>
