@@ -1,0 +1,14 @@
+<div class="nav-container">
+  @for (league of appLeagues; track league.leagueId) {
+  <button
+    type="button"
+    id="{{ league.countryName | lowercase }}Select"
+    [title]="league.leagueName"
+    class="btn-league"
+    [class.selected]="league.leagueId == selectedLeagueId"
+    (click)="onSelectedLeagueIdChange(league.leagueId)"
+  >
+    {{ league.countryName }}
+  </button>
+  }
+</div>

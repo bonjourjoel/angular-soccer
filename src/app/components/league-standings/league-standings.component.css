@@ -1,0 +1,24 @@
+:host {
+  background-color: mintcream;
+}
+
+.table-container {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  background-color: lightgray;
+  grid-gap: 1px;
+}
+
+.table-item {
+  background-color: mintcream;
+  padding: 0.2em;
+}
+
+.table-item-header {
+  font-weight: bold;
+}
+
+.img-logo {
+  width: 1em;
+  height: 1em;
+}

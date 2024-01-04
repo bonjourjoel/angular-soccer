@@ -1,0 +1,25 @@
+<div class="table-container">
+  <div class="table-item table-item-header">#</div>
+  <div class="table-item table-item-header"></div>
+  <div class="table-item table-item-header">Name</div>
+  <div class="table-item table-item-header">Games</div>
+  <div class="table-item table-item-header">W</div>
+  <div class="table-item table-item-header">L</div>
+  <div class="table-item table-item-header">D</div>
+  <div class="table-item table-item-header">Goal difference</div>
+  <div class="table-item table-item-header">Points</div>
+
+  @for (standing of standings; track standing.team.id) {
+  <div class="table-item">{{ standing.rank }}</div>
+  <div class="table-item">
+    <img class="img-logo" [src]="standing.team.logo" />
+  </div>
+  <div class="table-item">{{ standing.team.name }}</div>
+  <div class="table-item">{{ standing.all.played }}</div>
+  <div class="table-item">{{ standing.all.win }}</div>
+  <div class="table-item">{{ standing.all.lose }}</div>
+  <div class="table-item">{{ standing.all.draw }}</div>
+  <div class="table-item">{{ standing.goalsDiff }}</div>
+  <div class="table-item">{{ standing.points }}</div>
+  }
+</div>
