@@ -13,3 +13,22 @@ body {
 .space-top {
   margin-top: 1em;
 }
+
+.btn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.btn:hover {
+  background-color: lightgray;
+}
+
+.btn.selected {
+  color: blue;
+  text-decoration: underline;
+}
+
+.img-logo {
+  width: 1em;
+  height: 1em;
+}

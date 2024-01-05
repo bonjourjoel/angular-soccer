@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LeagueStandingsComponent } from './league-standings.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LeagueStandingsComponent', () => {
   let component: LeagueStandingsComponent;
@@ -8,10 +9,9 @@ describe('LeagueStandingsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LeagueStandingsComponent]
-    })
-    .compileComponents();
-    
+      imports: [LeagueStandingsComponent, HttpClientTestingModule],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(LeagueStandingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

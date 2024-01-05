@@ -5,6 +5,7 @@ import { AppSettingsService } from './app-settings.service';
 import { CachedQueryService } from './cached-query.service';
 import {
   ApiResponseCommon,
+  ApiResponseFixtures,
   ApiResponseStandings,
 } from '../models/api-football-datatypes.interface';
 
@@ -25,27 +26,38 @@ export class ApiFootballService {
     url: string
   ): Promise<T> {
     console.log(`execGetQuery -> ${url}`);
-    return this.cachedQueryService.useCache(url, async (): Promise<T> => {
-      return new Promise<T>(
-        (resolve: (value: T) => void, reject: (reason?: any) => void) => {
-          this.http
-            .get<T>(url, {
-              headers: new HttpHeaders({
-                'x-rapidapi-key': this.appSettingsService.appSettings.apiKey,
-              }),
-            })
-            .pipe(catchError(this.handleError<T>(url)))
-            .subscribe((data: T) => {
-              if (data.errors.length > 0) {
-                this.handleError(url)(
-                  new Error('Api error response: ' + data.errors.join(' ; '))
-                );
-              }
-              resolve(data);
-            });
-        }
+
+    // exec cached query
+    const data: T = await this.cachedQueryService.useCache(
+      url,
+      async (): Promise<T> => {
+        return new Promise<T>(
+          (resolve: (value: T) => void, reject: (reason?: any) => void) => {
+            this.http
+              .get<T>(url, {
+                headers: new HttpHeaders({
+                  'x-rapidapi-key': this.appSettingsService.appSettings.apiKey,
+                }),
+              })
+              .pipe(catchError(this.handleError<T>(url)))
+              .subscribe((data: T) => {
+                resolve(data);
+              });
+          }
+        );
+      }
+    );
+
+    // test api error response
+    console.log('response data=', data);
+    if (!Array.isArray(data.errors) || data.errors.length > 0) {
+      this.handleError(url)(
+        new Error('Api error response: ' + JSON.stringify(data.errors))
       );
-    });
+    }
+
+    // done
+    return data;
   }
 
   /**
@@ -68,7 +80,7 @@ export class ApiFootballService {
   }
 
   /**
-   * Get current season
+   * Compute current season
    */
   private get currentSeason(): string {
     const now: Date = new Date();
@@ -88,5 +100,17 @@ export class ApiFootballService {
   }): Promise<ApiResponseStandings> {
     const url: string = `${this.appSettingsService.appSettings.apiBaseUrl}/standings?league=${args.leagueId}&season=${this.currentSeason}`;
     return this.execGetQuery<ApiResponseStandings>(url);
+  }
+
+  /**
+   * Get last games: for a team
+   */
+  public async getTeamLastGames(args: {
+    teamId: number;
+    gamesCount?: number;
+  }): Promise<ApiResponseFixtures> {
+    args.gamesCount = args.gamesCount ?? 10;
+    const url: string = `${this.appSettingsService.appSettings.apiBaseUrl}/fixtures?team=${args.teamId}&last=${args.gamesCount}`;
+    return this.execGetQuery<ApiResponseFixtures>(url);
   }
 }

@@ -26,7 +26,9 @@
     class="table-item"
     [class]="$even ? 'table-item-even' : 'table-item-odd'"
   >
-    {{ standing.team.name }}
+    <button class="btn" [routerLink]="['/team', standing.team.id]">
+      {{ standing.team.name }}
+    </button>
   </div>
   <div
     class="table-item"

@@ -4,7 +4,7 @@
     type="button"
     id="{{ league.countryName | lowercase }}Select"
     [title]="league.leagueName"
-    class="btn-league"
+    class="btn"
     [class.selected]="league.leagueId == selectedLeagueId"
     (click)="onSelectedLeagueIdChange(league.leagueId)"
   >

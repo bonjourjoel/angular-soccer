@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeagueComponent } from './league.component';
+import { TeamComponent } from './team.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ActivatedRouteTestingProvider } from '../../test-mockers/ActivatedRouteTestingProvider';
 
-describe('LeagueComponent', () => {
-  let component: LeagueComponent;
-  let fixture: ComponentFixture<LeagueComponent>;
+describe('TeamComponent', () => {
+  let component: TeamComponent;
+  let fixture: ComponentFixture<TeamComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LeagueComponent],
+      imports: [TeamComponent, HttpClientTestingModule],
       providers: [ActivatedRouteTestingProvider],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LeagueComponent);
+    fixture = TestBed.createComponent(TeamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

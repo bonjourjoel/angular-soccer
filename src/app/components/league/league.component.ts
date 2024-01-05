@@ -13,14 +13,16 @@ import { Error404Component } from '../error404/error404.component';
   styleUrl: './league.component.css',
   imports: [LeagueNavComponent, LeagueStandingsComponent, Error404Component],
 })
-export class LeagueComponent {
+export class LeagueComponent implements OnInit {
   leagueId?: number;
 
   constructor(
     private appSettingsService: AppSettingsService,
     private route: ActivatedRoute,
     private router: Router
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap) => {
       this.leagueId = Number(paramMap.get('leagueId'));
       // check that id is allowed

@@ -11,11 +11,12 @@ import {
   ApiResponseStandings,
   ApiStanding,
 } from '../../models/api-football-datatypes.interface';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-league-standings',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './league-standings.component.html',
   styleUrl: './league-standings.component.css',
 })
@@ -28,10 +29,8 @@ export class LeagueStandingsComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.apiFootballService
       .getLeagueStandings({ leagueId: this.leagueId })
-      .then(
-        (apiStandingsResponse: ApiResponseStandings) =>
-          (this.standings =
-            apiStandingsResponse.response[0].league.standings[0])
-      );
+      .then((apiStandingsResponse: ApiResponseStandings) => {
+        this.standings = apiStandingsResponse.response[0].league.standings[0];
+      });
   }
 }

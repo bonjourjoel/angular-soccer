@@ -1,0 +1,27 @@
+.table-container {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  padding: 1em;
+  border-radius: 1em;
+  background-color: mintcream;
+  opacity: 0.85;
+}
+
+.table-container > * {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.btn-back {
+  margin-left: 1em;
+  padding: 1em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  background-color: blue;
+}
+
+.btn-back:hover {
+  background-color: dodgerblue;
+}

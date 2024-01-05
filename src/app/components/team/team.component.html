@@ -1,0 +1,18 @@
+@if (fixtures != null && fixtures.length == 0) {
+<h1>No matches played.</h1>
+} @else if (fixtures != null && fixtures.length > 0) {
+<div class="table-container">
+  @for (fixture of fixtures; track fixture.fixture.id) {
+  <div><img class="img-logo" [src]="fixture.teams.home.logo" /></div>
+  <div>{{ fixture.teams.home.name }}</div>
+  <div>{{ fixture.goals.home }}</div>
+  <div>-</div>
+  <div>{{ fixture.goals.away }}</div>
+  <div>{{ fixture.teams.away.name }}</div>
+  <div><img class="img-logo" [src]="fixture.teams.away.logo" /></div>
+  }
+</div>
+<div>
+  <button class="btn-back space-top" (click)="historyGoBack()">Back</button>
+</div>
+}

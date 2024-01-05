@@ -3,6 +3,7 @@ import { LeagueComponent } from './components/league/league.component';
 import { AppSettingsService } from './services/app-settings.service';
 import { League } from './models/league.interface';
 import { Error404Component } from './components/error404/error404.component';
+import { TeamComponent } from './components/team/team.component';
 
 function getDefaultLeagueId(): number {
   const appSettingsService = new AppSettingsService(); // can't inject here
@@ -15,5 +16,6 @@ function getDefaultLeagueId(): number {
 export const routes: Routes = [
   { path: '', redirectTo: `league/${getDefaultLeagueId()}`, pathMatch: 'full' },
   { path: 'league/:leagueId', component: LeagueComponent },
+  { path: 'team/:teamId', component: TeamComponent },
   { path: '**', component: Error404Component },
 ];

@@ -7,17 +7,3 @@
   padding: 1em;
   border-radius: 1em;
 }
-
-.btn-league {
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-}
-.btn-league:hover {
-  background-color: lightgray;
-}
-
-.btn-league.selected {
-  color: blue;
-  text-decoration: underline;
-}
